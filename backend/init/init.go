@@ -17,6 +17,7 @@ import (
 	backendAzure "github.com/hashicorp/terraform/backend/remote-state/azure"
 	backendConsul "github.com/hashicorp/terraform/backend/remote-state/consul"
 	backendCos "github.com/hashicorp/terraform/backend/remote-state/cos"
+	backendDynamoDB "github.com/hashicorp/terraform/backend/remote-state/dynamodb"
 	backendEtcdv2 "github.com/hashicorp/terraform/backend/remote-state/etcdv2"
 	backendEtcdv3 "github.com/hashicorp/terraform/backend/remote-state/etcdv3"
 	backendGCS "github.com/hashicorp/terraform/backend/remote-state/gcs"
@@ -59,6 +60,7 @@ func Init(services *disco.Disco) {
 		"azurerm":     func() backend.Backend { return backendAzure.New() },
 		"consul":      func() backend.Backend { return backendConsul.New() },
 		"cos":         func() backend.Backend { return backendCos.New() },
+		"dynamodb":    func() backend.Backend { return backendDynamoDB.New() },
 		"etcd":        func() backend.Backend { return backendEtcdv2.New() },
 		"etcdv3":      func() backend.Backend { return backendEtcdv3.New() },
 		"gcs":         func() backend.Backend { return backendGCS.New() },
